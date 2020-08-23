@@ -6,7 +6,7 @@ using namespace std;
 
 class Point {
     private:
-        int x, y;
+        int x, y; //if x=y=0 -> result "0   3"
 
     public:
         void setCoord(int x, int y) { //метод класса
@@ -17,13 +17,19 @@ class Point {
         int getX() { return (x >= -MAX_COORD && x<= MAX_COORD) ? x: UN_DEFINED;}
         int getY() { return (y >= -MAX_COORD && y<= MAX_COORD) ? y: UN_DEFINED;}
 };
+//function will be return classes object
+Point& foo(Point& a) { //reference to object
+    cout << a.getX() << " " << a.getY() << endl;
+    return a;
+}
 
 int main()
 {
     setlocale(LC_ALL, "rus");
 
     Point pt;
-    pt.setCoord(200, 3);
-    cout << pt.getX() << " " << pt.getY() << endl;
-    return 0;
+    pt.setCoord(2, 3);
+
+    Point pt2 = foo(pt);
+    cout << "x= " << pt2.getX() << " y=" <<pt2.getY() << endl;
 }
