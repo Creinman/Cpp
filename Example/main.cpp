@@ -9,9 +9,9 @@ class Point {
         int x, y;
 
     public:
-        void setCoord(int pt_x, int pt_y) { //метод класса
-            if (pt_x >= -MAX_COORD && pt_x<= MAX_COORD) x = pt_x;
-            if (pt_y >= -MAX_COORD && pt_y<= MAX_COORD) y = pt_y;
+        void setCoord(int x, int y) { //метод класса
+            if (x >= -MAX_COORD && x<= MAX_COORD) this->x = x;
+            if (y >= -MAX_COORD && y<= MAX_COORD) this->y = y;
         }
 
         int getX() { return (x >= -MAX_COORD && x<= MAX_COORD) ? x: UN_DEFINED;}
@@ -23,7 +23,7 @@ int main()
     setlocale(LC_ALL, "rus");
 
     Point pt;
-    pt.setCoord(300, 3);
+    pt.setCoord(200, 3);
     cout << pt.getX() << " " << pt.getY() << endl;
     return 0;
 }
